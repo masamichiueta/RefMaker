@@ -2,7 +2,7 @@
 
 "RefMaker" is a simple reference manager for you. You can create and save your references. 
 
-The creators of RefMaker is @maasaamiichii and @kyonpeeeei.
+The creators of RefMaker are @maasaamiichii and @kyonpeeeei.
 
 We want to improve RefMaker more and more.
 
