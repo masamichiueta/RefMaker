@@ -1,7 +1,7 @@
 DEBUG=False
 TESTING=False
 
-SECRET_KEY = '%\xeb\xa7\xf0z\xf8"\x8f\x1f\x9c\xf5\x01i\xab\xdf\\\xfe\x8d\xbb\xd5\xb1\xf4DJ'
+SECRET_KEY = 'secret key here'
 
 SQLALCHEMY_DATABASE_URI = 'mysql://root:root@localhost/refmaker?charset=utf8'
 

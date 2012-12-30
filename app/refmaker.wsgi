@@ -10,10 +10,6 @@ import os
 import sys
 import ConfigParser
 
-app_path = '/Library/Server/Web/Data/WebApps/RefMaker/app'
-sys.path.append(app_path)
-
-
 # Set main configuration file's path.
 refmaker_conf_file = os.path.join(os.path.dirname(__file__), '../config/refmaker.ini')
 
