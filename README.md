@@ -120,7 +120,6 @@ If you do not use virtualenv, delete this file (virtualenv.ini).
 Setup WSGI in apache2 configuration like the following:
 
 ```
-apache
 <virtualhost *:80>
     DocumentRoot "/path/to/your_local_repository/refmaker/app"
     ServerName refmaker.example.com
