@@ -1,0 +1,2 @@
+[virtualenv]
+VIRTUALENV_ACTIVATE=/path/to/env/bin/activate_this.pyactivate_this.py

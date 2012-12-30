@@ -1,0 +1,622 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="well">
+<div class="tabbable"> <!-- Only required for left/right tabs -->
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#user_reference" data-toggle="tab">{{ follow_user.name }} Reference List</a></li>
+    <li><a href="#following" data-toggle="tab">Following</a></li>
+    <li><a href="#follower" data-toggle="tab">Follower</a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="user_reference">
+		<div class="row">
+			<div class="span11">
+			<div>
+				 <form name="export-all" method="post" action="/export-all">
+		    		 <input type="hidden" name="follow_user_id" value={{ follow_user.id }}>
+			    	<button type="submit" class="btn btn-info export-all-button">Export All</button>
+		    	</form>
+			</div>
+			 
+			{% for bibtex in bibtexlist %}
+		    	<ul class="nav nav-list">
+			    	<div class="row">
+			    		<p class="span8">
+				    		{% if bibtex.bibtype_id == 1 %}
+			    		    
+				    		    {{ bibtex.author }}: {{ bibtex.title }}, {{ bibtex.journal }}, 
+				    		    
+				    		    {% if bibtex.volume != '' and bibtex.volume != None %}
+				    		        Vol.{{ bibtex.volume }}, 
+				    		    {% endif %}
+				    		    
+				    		    {% if bibtex.number != '' and bibtex.number != None %}
+				    		        No.{{ bibtex.number }}, 
+				    		    {% endif %}
+				    		    
+				    		    {% if bibtex.pages != '' and bibtex.pages != None %}
+				    		        pp.{{ bibtex.pages }}, 
+				    		    {% endif %}
+				    		    
+				    		    {% if bibtex.month != '' and bibtex.month != None %}
+				    		        {{ bibtex.month }},
+				    		    {% endif %}
+				    		    
+				    		    {{ bibtex. year }}.
+				    		    
+				    		    {% if bibtex.note != '' and bibtex.note != None %}
+				    		        {{ bibtex.note }}, 
+				    		    {% endif %}
+				    		    
+				    		{% endif %}
+				    		
+				    		{% if bibtex.bibtype_id == 2 %}
+				    		    
+				    		    {{ bibtex.author }}: {{ bibtex.title }}, {{ bibtex.publisher }}, 
+				    		    
+				    		    {% if bibtex.volume != '' and bibtex.volume != None %}
+				    		        Vol.{{ bibtex.volume }}, 
+				    		    {% endif %}
+				    		    
+				    		    {% if bibtex.number != '' and bibtex.number != None %}
+				    		        No.{{ bibtex.number }}, 
+				    		    {% endif %}
+				    		    
+				    		    {% if bibtex.series != '' and bibtex.series != None %}
+				    		        {{ bibtex.series }}, 
+				    		    {% endif %}
+				    		    
+				    		    {% if bibtex.address != '' and bibtex.address != None %}
+				    		        {{ bibtex.address }}, 
+				    		    {% endif %}
+				    		     			    		    
+				    		    {% if bibtex.edition != '' and bibtex.edition != None %}
+				    		        {{ bibtex.edition }}, 
+				    		    {% endif %}
+	
+				    		    {% if bibtex.month != '' and bibtex.month != None %}
+				    		        {{ bibtex.month }},
+				    		    {% endif %}
+				    		    
+				    		    {{ bibtex. year }}.
+				    		    
+				    		    {% if bibtex.note != '' and bibtex.note != None %}
+				    		        {{ bibtex.note }}
+				    		        
+				    		    {% endif %}
+				    		{% endif %}
+				    		
+				    		{% if bibtex.bibtype_id == 3 %}
+				    		
+				    		    {% if bibtex.author != '' and bibtex.author != None %}
+				    		        {{ bibtex.author }}: 
+				    		    {% endif %}
+				    		    
+				    		    {{ bibtex.title }}, 
+				    		    
+				    		    {% if bibtex.howpublished != '' and bibtex.howpublished != None %}
+				    		        {{ bibtex.howpublished }}, 
+				    		    {% endif %}
+				    		    
+				    		    {% if bibtex.address != '' and bibtex.address != None %}
+				    		        {{ bibtex.address }}, 
+				    		    {% endif %}
+				    		    
+				    		    {% if bibtex.month != '' and bibtex.month != None %}
+				    		        {{ bibtex.month }},
+				    		    {% endif %}
+				    		    
+				    		    {% if bibtex.year != '' and bibtex.year != None %}
+				    		        {{ bibtex.year }}.
+				    		    {% endif %}
+				    		    
+				    		    {% if bibtex.note != '' and bibtex.note != None %}
+				    		        {{ bibtex.note }}, 
+				    		    {% endif %}
+				    		    
+				    		{% endif %}
+				    		
+				    		{% if bibtex.bibtype_id == 4 %}
+				    		
+				    		    {{ bibtex.author }}: {{ bibtex.title }}, {{ bibtex.chapter }}, {{ bibtex.publisher }}
+	
+				    		    {% if bibtex.volume != '' and bibtex.volume != None %}
+				    		        Vol.{{ bibtex.volume }}, 
+				    		    {% endif %}
+				    		    
+				    		    {% if bibtex.number != '' and bibtex.number != None %}
+				    		        No.{{ bibtex.number }}, 
+				    		    {% endif %}
+				    		    
+				    		    {% if bibtex.series != '' and bibtex.series != None %}
+				    		        {{ bibtex.series }}, 
+				    		    {% endif %}
+				    		    
+				    		    {% if bibtex.type != '' and bibtex.type != None %}
+				    		        {{ bibtex.type }}, 
+				    		    {% endif %}
+				    		    
+				    		    {% if bibtex.address != '' and bibtex.address != None %}
+				    		        {{ bibtex.address }}, 
+				    		    {% endif %}
+				    		     			    		    
+				    		    {% if bibtex.edition != '' and bibtex.edition != None %}
+				    		        {{ bibtex.edition }}, 
+				    		    {% endif %}
+	
+				    		    {% if bibtex.month != '' and bibtex.month != None %}
+				    		        {{ bibtex.month }},
+				    		    {% endif %}
+				    		    
+				    		    {{ bibtex.year }}.
+				    		    
+				    		{% endif %}
+				    		
+				    		{% if bibtex.bibtype_id == 5 %}
+				    		
+				    		    {{ bibtex.author }}: {{ bibtex.title }}, {{ bibtex.booktitle }}, {{ bibtex.publisher }}
+	
+	                            {% if bibtex.editor != '' and bibtex.editor != None %}
+				    		        {{ bibtex.editor }}, 
+				    		    {% endif %}
+				    		    
+				    		    {% if bibtex.volume != '' and bibtex.volume != None %}
+				    		        Vol.{{ bibtex.volume }}, 
+				    		    {% endif %}
+				    		    
+				    		    {% if bibtex.number != '' and bibtex.number != None %}
+				    		        No.{{ bibtex.number }}, 
+				    		    {% endif %}
+				    		    
+				    		    {% if bibtex.series != '' and bibtex.series != None %}
+				    		        {{ bibtex.series }}, 
+				    		    {% endif %}
+				    		    
+				    		    {% if bibtex.type != '' and bibtex.type != None %}
+				    		        {{ bibtex.type }}, 
+				    		    {% endif %}
+				    		    
+				    		    {% if bibtex.chapter != '' and bibtex.chapter != None %}
+				    		        {{ bibtex.chapter }}, 
+				    		    {% endif %}
+				    		    
+				    		    {% if bibtex.pages != '' and bibtex.pages != None %}
+				    		        {{ bibtex.pages }}, 
+				    		    {% endif %}
+				    		    
+				    		    {% if bibtex.address != '' and bibtex.address != None %}
+				    		        {{ bibtex.address }}, 
+				    		    {% endif %}
+				    		     			    		    
+				    		    {% if bibtex.edition != '' and bibtex.edition != None %}
+				    		        {{ bibtex.edition }}, 
+				    		    {% endif %}
+	
+				    		    {% if bibtex.month != '' and bibtex.month != None %}
+				    		        {{ bibtex.month }},
+				    		    {% endif %}
+				    		    
+				    		    {{ bibtex.year }}.
+				    		    
+				    		    {% if bibtex.note != '' and bibtex.note != None %}
+				    		        {{ bibtex.note }} 
+				    		    {% endif %}
+				    		    
+				    		{% endif %}
+				    		
+				    		{% if bibtex.bibtype_id == 6 %}
+				    		
+				    		    {{ bibtex.author }}: {{ bibtex.title }}, {{ bibtex.booktitle }},
+				    		    
+				    		    {% if bibtex.publisher != '' and bibtex.publisher != None %}
+				    		        {{ bibtex.publisher }}, 
+				    		    {% endif %}
+	
+	                            {% if bibtex.editor != '' and bibtex.editor != None %}
+				    		        {{ bibtex.editor }}, 
+				    		    {% endif %}
+				    		    
+				    		    {% if bibtex.volume != '' and bibtex.volume != None %}
+				    		        Vol.{{ bibtex.volume }}, 
+				    		    {% endif %}
+				    		    
+				    		    {% if bibtex.number != '' and bibtex.number != None %}
+				    		        No.{{ bibtex.number }}, 
+				    		    {% endif %}
+				    		    
+				    		    {% if bibtex.series != '' and bibtex.series != None %}
+				    		        {{ bibtex.series }}, 
+				    		    {% endif %}
+				    		    
+				    		    {% if bibtex.pages != '' and bibtex.pages != None %}
+				    		        pp.{{ bibtex.pages }}, 
+				    		    {% endif %}
+				    		    
+				    		    {% if bibtex.address != '' and bibtex.address != None %}
+				    		        {{ bibtex.address }}, 
+				    		    {% endif %}
+				    		     			    		    
+				    		    {% if bibtex.organization != '' and bibtex.organization != None %}
+				    		        {{ bibtex.organization }}, 
+				    		    {% endif %}
+				  
+				    		    {% if bibtex.month != '' and bibtex.month != None %}
+				    		        {{ bibtex.month }},
+				    		    {% endif %}
+				    		    
+				    		    {{ bibtex.year }}.
+				    		    
+				    		    {% if bibtex.note != '' and bibtex.note != None %}
+				    		        {{ bibtex.note }} 
+				    		    {% endif %}
+				    		    
+				    		{% endif %}
+				    		
+				    		{% if bibtex.bibtype_id == 7 %}
+				    		
+				    		    {{ bibtex.author }}: {{ bibtex.title }}, {{ bibtex.booktitle }},
+				    		    
+				    		    {% if bibtex.publisher != '' and bibtex.publisher != None %}
+				    		        {{ bibtex.publisher }}, 
+				    		    {% endif %}
+	
+	                            {% if bibtex.editor != '' and bibtex.editor != None %}
+				    		        {{ bibtex.editor }}, 
+				    		    {% endif %}
+				    		    
+				    		    {% if bibtex.volume != '' and bibtex.volume != None %}
+				    		        Vol.{{ bibtex.volume }}, 
+				    		    {% endif %}
+				    		    
+				    		    {% if bibtex.number != '' and bibtex.number != None %}
+				    		        No.{{ bibtex.number }}, 
+				    		    {% endif %}
+				    		    
+				    		    {% if bibtex.series != '' and bibtex.series != None %}
+				    		        {{ bibtex.series }}, 
+				    		    {% endif %}
+				    		    
+				    		    {% if bibtex.pages != '' and bibtex.pages != None %}
+				    		        pp.{{ bibtex.pages }}, 
+				    		    {% endif %}
+				    		    
+				    		    {% if bibtex.address != '' and bibtex.address != None %}
+				    		        {{ bibtex.address }}, 
+				    		    {% endif %}
+				    		     			    		    
+				    		    {% if bibtex.organization != '' and bibtex.organization != None %}
+				    		        {{ bibtex.organization }}, 
+				    		    {% endif %}
+				   
+				    		    {% if bibtex.month != '' and bibtex.month != None %}
+				    		        {{ bibtex.month }},
+				    		    {% endif %}
+				    		    
+				    		    {{ bibtex.year }}.
+				    		    
+				    		    {% if bibtex.note != '' and bibtex.note != None %}
+				    		        {{ bibtex.note }} 
+				    		    {% endif %}
+				    		    
+				    		{% endif %}
+				    		
+				    		{% if bibtex.bibtype_id == 8 %}
+				    		
+				    		    {% if bibtex.author != '' and bibtex.author != None %}
+				    		        {{ bibtex.author }}: 
+				    		    {% endif %}
+				    		    
+				    		    {{ bibtex.title }},
+	
+	                            {% if bibtex.organization != '' and bibtex.organization != None %}
+				    		        {{ bibtex.organization }}, 
+				    		    {% endif %}
+				    		    
+				    		    {% if bibtex.address != '' and bibtex.address != None %}
+				    		        {{ bibtex.address }}, 
+				    		    {% endif %}
+				    		     			    		    
+				    		    {% if bibtex.edition != '' and bibtex.edition != None %}
+				    		        {{ bibtex.edition }}, 
+				    		    {% endif %}
+				    		    
+				    		    {% if bibtex.month != '' and bibtex.month != None %}
+				    		        {{ bibtex.month }},
+				    		    {% endif %}
+				    		    
+				    		    {% if bibtex.year != '' and bibtex.year != None %}
+				    		        {{ bibtex.year }}.
+				    		    {% endif %}
+				    		    
+				    		    {% if bibtex.note != '' and bibtex.note != None %}
+				    		        {{ bibtex.note }} 
+				    		    {% endif %}
+				    		    
+				    		{% endif %}
+				    		
+				    		{% if bibtex.bibtype_id == 9 %}
+				    		    
+				    		    {{ bibtex.author }}: {{ bibtex.title }}, {{ bibtex.school }}, 
+				    		    
+				    		    {% if bibtex.type != '' and bibtex.type != None %}
+				    		        {{ bibtex.type }}, 
+				    		    {% endif %}
+				    		    
+				    		    {% if bibtex.month != '' and bibtex.month != None %}
+				    		        {{ bibtex.month }},
+				    		    {% endif %}
+				    		    
+				    		    {{ bibtex. year }}.
+				    		    
+				    		    {% if bibtex.note != '' and bibtex.note != None %}
+				    		        {{ bibtex.note }}, 
+				    		    {% endif %}
+				    		    
+				    		{% endif %}
+				    		
+				    		{% if bibtex.bibtype_id == 10 %}
+				    		    
+				    		    {{ bibtex.author }}: {{ bibtex.title }}, {{ bibtex.school }}, 
+				    		    
+				    		    {% if bibtex.type != '' and bibtex.type != None %}
+				    		        {{ bibtex.type }}, 
+				    		    {% endif %}
+				    		    
+				    		    {% if bibtex.month != '' and bibtex.month != None %}
+				    		        {{ bibtex.month }},
+				    		    {% endif %}
+				    		    
+				    		    {{ bibtex. year }}.
+				    		    
+				    		    {% if bibtex.note != '' and bibtex.note != None %}
+				    		        {{ bibtex.note }}, 
+				    		    {% endif %}
+				    		    
+				    		{% endif %}
+				    		
+				    		{% if bibtex.bibtype_id == 11 %}
+				    		
+				    		    {{ bibtex.title }},
+				    		    
+				    		    {% if bibtex.publisher != '' and bibtex.publisher != None %}
+				    		        {{ bibtex.publisher }}, 
+				    		    {% endif %}
+				    		    
+	                            {% if bibtex.editor != '' and bibtex.editor != None %}
+				    		        {{ bibtex.editor }}, 
+				    		    {% endif %}
+				    		    
+				    		    {% if bibtex.volume != '' and bibtex.volume != None %}
+				    		        Vol.{{ bibtex.volume }}, 
+				    		    {% endif %}
+				    		    
+				    		    {% if bibtex.number != '' and bibtex.number != None %}
+				    		        No.{{ bibtex.number }}, 
+				    		    {% endif %}
+				    		    
+				    		    {% if bibtex.series != '' and bibtex.series != None %}
+				    		        {{ bibtex.series }}, 
+				    		    {% endif %}
+				    		    
+				    		    {% if bibtex.pages != '' and bibtex.pages != None %}
+				    		        pp.{{ bibtex.pages }}, 
+				    		    {% endif %}
+				    		    
+				    		    {% if bibtex.address != '' and bibtex.address != None %}
+				    		        {{ bibtex.address }}, 
+				    		    {% endif %}
+				    		     			    		    
+				    		    {% if bibtex.organization != '' and bibtex.organization != None %}
+				    		        {{ bibtex.organization }}, 
+				    		    {% endif %}
+				  
+				    		    {% if bibtex.month != '' and bibtex.month != None %}
+				    		        {{ bibtex.month }},
+				    		    {% endif %}
+				    		    
+				    		    {{ bibtex.year }}.
+				    		    
+				    		    {% if bibtex.note != '' and bibtex.note != None %}
+				    		        {{ bibtex.note }} 
+				    		    {% endif %}
+				    		    
+				    		{% endif %}
+				    		
+				    		{% if bibtex.bibtype_id == 12 %}
+				    		    
+				    		    {{ bibtex.author }}: {{ bibtex.title }}, {{ bibtex.institution }}, 
+				    		    
+				    		    {% if bibtex.type != '' and bibtex.type != None %}
+				    		        {{ bibtex.type }}, 
+				    		    {% endif %}
+				    		    
+				    		    {% if bibtex.number != '' and bibtex.number != None %}
+				    		        {{ bibtex.number }}, 
+				    		    {% endif %}
+				    		    
+				    		    {% if bibtex.address != '' and bibtex.address != None %}
+				    		        {{ bibtex.address }}, 
+				    		    {% endif %}
+				    		    
+				    		    {% if bibtex.month != '' and bibtex.month != None %}
+				    		        {{ bibtex.month }},
+				    		    {% endif %}
+				    		    
+				    		    {{ bibtex. year }}.
+				    		    
+				    		    {% if bibtex.note != '' and bibtex.note != None %}
+				    		        {{ bibtex.note }}, 
+				    		    {% endif %}
+				    		    
+				    		{% endif %}
+				    		
+				    		{% if bibtex.bibtype_id == 13 %}
+				    		    
+				    		    {{ bibtex.author }}: {{ bibtex.title }}, 
+				    		    			    		    
+				    		    {% if bibtex.month != '' and bibtex.month != None %}
+				    		        {{ bibtex.month }},
+				    		    {% endif %}
+				    		    
+				    		    {% if bibtex.year != '' and bibtex.year != None %}
+				    		        {{ bibtex.year }}.
+				    		    {% endif %}
+				    		    
+				    		    {{ bibtex.note }}
+				    		   	
+				    		{% endif %}
+				    		
+				    		{% if bibtex.bibtype_id == 14 %}
+				    		
+				    			{% if bibtex.author != '' and bibtex.author != None %}
+				    		        {{ bibtex.author }}: 
+				    		    {% endif %}
+				    		    
+				    		    {% if bibtex.title != '' and bibtex.title != None %}
+				    		        {{ bibtex.title }}, 
+				    		    {% endif %}
+				    		    
+				    		    {% if bibtex.howpublished != '' and bibtex.howpublished != None %}
+				    		        {{ bibtex.howpublished }}, 
+				    		    {% endif %}
+				    		    
+				    		    {% if bibtex.month != '' and bibtex.month != None %}
+				    		        {{ bibtex.month }},
+				    		    {% endif %}
+				    		    
+				    		    {% if bibtex.year != '' and bibtex.year != None %}
+				    		        {{ bibtex.year }}.
+				    		    {% endif %}
+				    		    
+				    		    {% if bibtex.note != '' and bibtex.note != None %}
+				    		        {{ bibtex.note }}
+				    		    {% endif %}
+				    		    
+				    		{% endif %}
+				    		
+			    		</p>
+	
+			    		
+			    		<p class="span1">
+			    		    <a href="/{{ bibtex.file_path }}"><button class="btn btn-warning span2">Export with BibTeX</button></a>
+			    		</p>
+				    	
+			    	</div>
+			    	<li class="divider"></li>
+			    </ul>
+			{% endfor %}
+			</div>
+		</div>
+		<div class="pagination" align="center">
+		    <ul>
+			    {% for page in range(pages) %}
+			    <li {% if current_page == page %}class="active"{% endif %}><a href="?id={{ follow_user_id }}&page={{ page }}">{{ page + 1 }}</a></li>
+			    {% endfor %}
+			</ul>
+		</div>
+	</div>
+	
+	<div class="tab-pane" id="following">
+	    <ul class="nav nav-list">
+		    {% for follow in follow_list %}
+		    <div class="following">
+		    <span class="icon">
+		    {% if follow != user %}
+		        <a href="/user?id={{ follow.id }}"><img src="/{{ follow.icon_path }}" width="30" height="30"></a>
+		    {% else %}
+		        <img src="/{{ follow.icon_path }}" width="30" height="30">
+		    {% endif %}
+		    </span>
+		    <span class="user-name">
+		    {% if follow != user %}
+		        <a href="/user?id={{ follow.id }}">{{ follow.name }}</a> 
+		    {% else %}
+		        {{ follow.name }}
+		    {% endif %}
+		    </span>
+		    {% if user == follow %}
+		    
+		    {% elif follow in current_user_follow_list %}
+		    <form name="unfollow" method="post" action="/unfollow" onSubmit="return confirm_unfollow()">
+		    <span class="unfollow-button">
+	    	    
+	                <input type="hidden" name="follow_id", value="{{ follow.id }}">
+	                <input type="hidden" name="current_page", value="/user?id={{ follow_user_id }}">
+			        <button type="submit" class="btn btn-danger">Unfollow</button>		    
+			    
+		    </span>
+		    </form>
+		    {% else %}
+		    <form name="follow" method="post" action="/follow">
+		    <span class="follow-button">
+	    	    
+	                <input type="hidden" name="follow_id", value="{{ follow.id }}">
+	                <input type="hidden" name="current_page", value="/user?id={{ follow_user_id }}">
+			        <button type="submit" class="btn btn-info">Follow</button>		    
+			    
+		    </span>
+		    </form>
+		    
+		    {% endif %}
+		    </div>
+	    	<li class="divider"></li>
+	    	{% endfor %}
+	    </ul>
+	    
+	</div>
+	
+	<div class="tab-pane" id="follower">
+		<ul class="nav nav-list">
+		    {% for follower in follower_list %}
+		    <div class="following">
+		    <span class="icon">
+		    {% if follower != user %}
+		        <a href="/user?id={{ follower.id }}"><img src="/{{ follower.icon_path }}" width="30" height="30"></a>
+		    {% else %}
+		        <img src="/{{ follower.icon_path }}" width="30" height="30">
+		    {% endif %}
+		    </span>
+		    <span class="user-name">
+		    {% if follower != user %}
+		        <a href="/user?id={{ follower.id }}">{{ follower.name }}</a> 
+		    {% else %}
+		        {{ follower.name }}
+		    {% endif %}
+		    </span>
+		    {% if user == follower %}
+		    
+		    {% elif follower in current_user_follow_list %}
+		    <form name="unfollow" method="post" action="/unfollow" onSubmit="return confirm_unfollow()">
+		    <span class="unfollow-button">
+	    	    
+	                <input type="hidden" name="follow_id", value="{{ follower.id }}">
+	                <input type="hidden" name="current_page", value="/user?id={{ follow_user_id }}">
+			        <button type="submit" class="btn btn-danger">Unfollow</button>		    
+			    
+		    </span>
+		    </form>
+		    {% else %}
+		    <form name="follow" method="post" action="/follow">
+		    <span class="follow-button">
+	    	    
+	                <input type="hidden" name="follow_id", value="{{ follower.id }}">
+	                <input type="hidden" name="current_page", value="/user?id={{ follow_user_id }}">
+			        <button type="submit" class="btn btn-info">Follow</button>		    
+			    
+		    </span>
+		    </form>
+		    {% endif %}
+		    </div>
+	    	<li class="divider"></li>
+	    	{% endfor %}
+	    </ul>
+	    
+    </div>
+
+    </div>
+</div>
+</div>
+
+
+{% endblock %}

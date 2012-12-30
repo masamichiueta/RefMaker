@@ -1,0 +1,23 @@
+{% from 'security/_macros.html' import render_field_with_errors, render_field %}
+{% include "security/_messages.html" %}
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="well">
+<div class="page-header">
+  <h3>Resend confirmation instructions</h3>
+</div>
+<div class="row content">
+  <div class="span4 offset1">
+	<form action="{{ url_for('security.send_confirmation') }}" method="POST" name="send_confirmation_form">
+	  {{ send_confirmation_form.hidden_tag() }}
+	  {{ render_field_with_errors(send_confirmation_form.email) }}
+	  <button type="submit" class="btn btn-primary btn-large">Resend Confirmation Instructions</button>
+	</form>
+  </div>
+</div>
+</div>
+
+{% endblock %}
+

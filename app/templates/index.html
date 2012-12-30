@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {%- if current_user.is_authenticated() -%}
+        {% include 'mylist.html' %}
+    {%- else -%}
+        {% include 'home.html' %}
+    {%- endif -%}
+{% endblock %}

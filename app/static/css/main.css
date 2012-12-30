@@ -1,0 +1,115 @@
+#footer {
+  margin: 50px 0;
+  padding: 10px;
+  border-top: 1px solid #EEE;
+  text-align: center;
+  color: #888;
+}
+
+.export {
+	position: relative;
+	float: right;
+	right: 100px;
+}
+
+.btn a{
+	color: white;
+}
+
+.following{
+	margin-left: 30px;
+	
+}
+
+.following .icon{
+	margin-right: 10px;
+}
+
+.following .user-name{
+	margin-left: 10px;
+}
+
+.following .unfollow-button{
+    position: relative;
+    top: -30px;
+	float: right;
+	right: 100px;
+	
+}
+
+.following .follow-button{
+    position: relative;
+    top: -30px;
+	float: right;
+	right: 100px;
+	
+}
+
+.delete-button{
+	position:relative; 
+	left:120px;
+}
+
+.export-all-button{
+	position:relative; 
+	left:850px;
+}
+
+
+@media screen and (max-width: 767px), only screen and (max-device-width: 480px), only screen and (min-device-width: 640px) and (max-device-width: 1136px) and (-webkit-min-device-pixel-ratio: 2) {
+
+#footer {
+  margin: 50px 0;
+  padding: 10px;
+  border-top: 1px solid #EEE;
+  text-align: center;
+  color: #888;
+}
+
+.export {
+	position: relative;
+	float: right;
+	right: 100px;
+}
+
+.btn a{
+	color: white;
+}
+
+.following{
+	margin-left: 30px;
+	height: 100px;
+	
+}
+
+.following .icon{
+	margin-right: 10px;
+}
+
+.following .user-name{
+	margin-left: 10px;
+}
+
+.following .unfollow-button{
+    margin: 20px,20px;
+    top:30px;
+}
+
+.following .follow-button{
+    margin: 20px,20px;
+    top:30px;
+}
+
+.delete-button{
+	position:relative; 
+	left:120px;
+}
+
+.export-all-button{
+	position:relative; 
+	left:10px;
+}
+
+}
+
+

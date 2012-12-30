@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="well">
+
+<h3>Following User List</h3>
+	<ul class="nav nav-list">
+	    {% for follow in follow_list %}
+	    <div class="following">
+	    <span class="icon">
+	        <a href="/user?id={{ follow.id }}"><img src="/{{ follow.icon_path }}" width="30" height="30"></a>
+	    </span>
+	    <span class="user-name">
+	        <a href="/user?id={{ follow.id }}">{{ follow.name }}</a> 
+	    </span>
+	    <form name="unfollow" method="post" action="/unfollow" onSubmit="return confirm_unfollow()">
+	    <span class="unfollow-button">
+    	    
+                <input type="hidden" name="follow_id", value="{{ follow.id }}">
+                <input type="hidden" name="current_page", value="/following">
+		        <button type="submit" class="btn btn-danger">Unfollow</button>		    
+		    
+	    </span>
+	    </form>
+	    </div>
+    	<li class="divider"></li>
+    	{% endfor %}
+    </ul>
+    <div class="pagination" align="center">
+	    <ul>
+	    {% for page in range(pages) %}
+		    <li {% if current_page == page %}class="active"{% endif %}><a href="?page={{ page }}">{{ page + 1 }}</a></li>
+		{% endfor %}
+		</ul>
+	</div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="well">
+
+<h3>Profile</h3>
+<div class="tabbable"> <!-- Only required for left/right tabs -->
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#account_setting" data-toggle="tab">Account Setting</a></li>
+    <li><a href="#following" data-toggle="tab">Following</a></li>
+    <li><a href="#follower" data-toggle="tab">Follower</a></li>
+    <li><a href="#password" data-toggle="tab">Change Password</a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="account_setting">
+    {% include 'profile_tabs/account_setting.html' %}
+	</div>
+	
+	<div class="tab-pane" id="following">
+    {% include 'profile_tabs/following.html' %}
+	</div>
+	
+	<div class="tab-pane" id="follower">
+    {% include 'profile_tabs/follower.html' %}
+	</div>
+  
+    <div class="tab-pane" id="password">
+   {% include 'profile_tabs/password.html' %}
+	</div>
+
+    </div>
+  </div>
+</div>
+
+</div><!--well-->
+
+{% endblock %}

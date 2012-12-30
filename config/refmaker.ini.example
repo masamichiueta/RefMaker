@@ -1,0 +1,27 @@
+DEBUG=False
+TESTING=False
+
+SECRET_KEY = '%\xeb\xa7\xf0z\xf8"\x8f\x1f\x9c\xf5\x01i\xab\xdf\\\xfe\x8d\xbb\xd5\xb1\xf4DJ'
+
+SQLALCHEMY_DATABASE_URI = 'mysql://root:root@localhost/refmaker?charset=utf8'
+
+DEFAULT_MAIL_SENDER = 'info@ref-maker.com'
+SECURITY_REGISTERABLE = True
+SECURITY_CONFIRMABLE = True
+SECURITY_RECOVERABLE = True
+
+MAIL_SERVER = 'smtp.gmail.com'
+MAIL_PORT = 465
+MAIL_USE_TLS = False
+MAIL_USE_SSL = True
+MAIL_USERNAME = 'user_name@gmail.com'
+MAIL_PASSWORD = 'password'
+
+SECURITY_PASSWORD_HASH = 'sha512_crypt'
+SECURITY_PASSWORD_SALT = 'secret-shared-key-goes-here'
+
+SECURITY_POST_LOGIN_VIEW = '/'
+
+NUM_BY_PAGE = 50
+
+    

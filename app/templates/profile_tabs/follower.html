@@ -1,0 +1,37 @@
+<ul class="nav nav-list">
+	    {% for follower in follower_list %}
+	    <div class="following">
+	    <span class="icon">
+	        <a href="/user?id={{ follower.id }}"><img src="/{{ follower.icon_path }}" width="30" height="30"></a>
+	    </span>
+	    <span class="user-name">
+	        <a href="/user?id={{ follower.id }}">{{ follower.name }}</a> 
+	    </span>
+		    
+		    {% if follower in follow_list %}
+		    <form name="unfollow" method="post" action="/unfollow" onSubmit="return confirm_unfollow()">
+		    <span class="unfollow-button">
+	    	    
+	                <input type="hidden" name="follow_id", value="{{ follower.id }}">
+	                <input type="hidden" name="current_page", value="/profile">
+			        <button type="submit" class="btn btn-danger">Unfollow</button>		    
+			    
+		    </span>
+		    </form>
+		    {% else %}
+		    <form name="follow" method="post" action="/follow">
+		    <span class="follow-button">
+	    	    
+	                <input type="hidden" name="follow_id", value="{{ follower.id }}">
+	                <input type="hidden" name="current_page", value="/profile">
+			        <button type="submit" class="btn btn-info">Follow</button>		    
+			    
+		    </span>
+		    </form>
+		    {% endif %}
+
+	    </div>
+    	<li class="divider"></li>
+    	{% endfor %}
+</ul>
+    
