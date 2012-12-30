@@ -4,4 +4,3 @@ app/refmaker_local.wsgi
 config/refmaker_local.ini
 config/virtualenv_local.ini
 db/*.bak
-app/uploads/*
